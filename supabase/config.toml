@@ -1,0 +1,6 @@
+# Minimal Supabase CLI config for the scan-receipt Edge Function.
+project_id = "splitsnap"
+
+[functions.scan-receipt]
+# The app calls this with the public anon key; abuse is limited per device in the function.
+verify_jwt = true

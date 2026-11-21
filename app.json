@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "SplitSnap",
+    "slug": "splitsnap",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.splitsnap.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0F3D2E",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.splitsnap.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "output": "single",
+      "name": "SplitSnap – Receipt Splitter",
+      "shortName": "SplitSnap",
+      "themeColor": "#0F3D2E",
+      "backgroundColor": "#F6F4EE",
+      "description": "Snap a receipt, tap what you ate, and SplitSnap splits tax and tip fairly to the cent."
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sharing",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "SplitSnap needs your photos to read receipts.",
+          "cameraPermission": "SplitSnap uses the camera to snap receipts."
+        }
+      ]
+    ],
+    "scheme": "splitsnap",
+    "description": "Snap a receipt, tap what you ate, and SplitSnap splits tax and tip fairly to the cent.",
+    "experiments": {
+      "typedRoutes": true,
+      "baseUrl": "/SplitSnap-Receipt-Splitter"
+    }
+  }
+}
