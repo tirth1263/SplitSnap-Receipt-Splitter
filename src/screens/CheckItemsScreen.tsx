@@ -104,6 +104,6 @@ function Line({ label, value, bold }: { label: string; value: string; bold?: boo
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', gap: space(2), paddingHorizontal: space(3), paddingVertical: space(2), minHeight: 56 },
   rowBorder: { borderTopWidth: 1, borderTopColor: colors.line },
-  name: { flex: 1, fontSize: 15, color: colors.ink, minHeight: 44, outlineStyle: 'none' } as never,
+  name: { flex: 1, minWidth: 0, fontSize: 15, color: colors.ink, minHeight: 44, outlineStyle: 'none' } as never,
   remove: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center', borderRadius: radius.pill },
 });

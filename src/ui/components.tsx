@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: space(3),
   },
   prefix: { color: colors.inkSoft, fontSize: 15, marginRight: 4 },
-  field: { flex: 1, minHeight: 46, fontSize: 15, color: colors.ink, outlineStyle: 'none' } as never,
+  field: { flex: 1, minWidth: 0, width: '100%', minHeight: 46, fontSize: 15, color: colors.ink, outlineStyle: 'none' } as never,
   chip: {
     paddingHorizontal: space(3),
     paddingVertical: space(2),
