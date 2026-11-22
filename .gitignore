@@ -44,3 +44,8 @@ yarn-error.*
 supabase/.temp/
 supabase/.branches/
 .env
+
+# Local secrets: never commit
+Token Set.txt
+*.token
+supabase/.temp/

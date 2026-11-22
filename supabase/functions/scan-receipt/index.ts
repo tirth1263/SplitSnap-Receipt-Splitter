@@ -47,12 +47,17 @@ const cors = {
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { ...cors, 'Content-Type': 'application/json' } });
 
-const anthropic = new Anthropic(); // reads ANTHROPIC_API_KEY
 const db = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
+let anthropic: Anthropic | null = null;
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: cors });
   if (req.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
+  if (!Deno.env.get('ANTHROPIC_API_KEY')) {
+    console.error('ANTHROPIC_API_KEY secret is not set');
+    return json({ error: 'Scanning is not configured on the server yet (missing ANTHROPIC_API_KEY).' }, 503);
+  }
+  anthropic ??= new Anthropic(); // reads ANTHROPIC_API_KEY
 
   let body: { image?: string; mediaType?: string; deviceId?: string };
   try {
@@ -130,6 +135,7 @@ Deno.serve(async (req) => {
       return json({ error: 'AI service error. Please try again.' }, 502);
     }
     console.error(err);
-    return json({ error: 'Unexpected error' }, 500);
+    // Only the error class name is returned: useful for debugging, leaks nothing sensitive.
+    return json({ error: 'Unexpected error', kind: (err as Error)?.name ?? 'unknown' }, 500);
   }
 });
