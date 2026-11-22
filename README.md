@@ -105,7 +105,7 @@ flowchart LR
 3. **The app shows the list, and the split happens on the phone.** It's simple arithmetic, so no AI is needed for that part. That keeps it instant, offline-friendly and free.
 4. **No accounts to start.** Free-scan limits are enforced per anonymous device ID, atomically in Postgres, with scans refunded automatically when the AI call fails.
 
-> **The live web demo** is a static site on GitHub Pages connected to a hosted Supabase Edge Function, so you can **scan real receipts right away**, with 5 free scans per device per month. Power users can paste their own Anthropic API key in **⚙️ Settings** for unlimited scans; it's stored only in the browser and sent only to `api.anthropic.com`. Or tap **Try a demo receipt** to see the full flow instantly.
+> **The live web demo** is a static site on GitHub Pages, wired to a hosted Supabase Edge Function. Tap **Try a demo receipt** or **Type items in** to see the full flow instantly. To scan real photos on the demo, paste your own Anthropic API key in **⚙️ Settings**; it's stored only in your browser and sent only to `api.anthropic.com`. *(Hosted scanning with 5 free scans per month switches on once the server's `ANTHROPIC_API_KEY` secret is set.)*
 
 ## 🧰 Tech stack
 
